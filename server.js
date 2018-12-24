@@ -31,6 +31,10 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Routes
 
+app.get('/', (request, response) => {
+  response.send('You are home!');
+});
+
 // GET route for scraping the website
 app.get("/scrape", function(req, res) {
   axios.get("https://medium.com/topic/culture").then(function(response) {
