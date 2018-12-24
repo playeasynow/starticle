@@ -9,7 +9,12 @@ const ArticleSchema = new Schema({
   },
   link: {
     type: String,
-    required: true
+  },
+  summary: {
+    type: String,
+  },
+  imageURL: {
+    type: String,
   },
   note: {
     type: Schema.Types.ObjectId,

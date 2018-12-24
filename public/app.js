@@ -1,13 +1,21 @@
 $.getJSON("/articles", function(data) {
   for (let i = 0; i < data.length; i++) {
     // display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+    // $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+    $('#articles').append(
+      `<div data-id=${data[i]._id} class="card">
+        <div><h3> ${data[i].title} </h3></div>
+        <div> ${data[i].summary} </div>
+        <div> <a target="_blank" href=${data[i].link}>Access Article</a></div>
+      </div>`
+    )
+   
   }
 });
 
 
 // whenever someone clicks a p tag
-$(document).on("click", "p", function() {
+$(document).on("click", ".card", function() {
   $("#notes").empty();
   let thisId = $(this).attr("data-id");
 
