@@ -9,7 +9,7 @@ const cheerio = require("cheerio");
 // models
 const db = require("./models");
 
-const PORT = 3000;
+const PORT = 8000;
 
 // initializing express
 const app = express();
@@ -26,7 +26,7 @@ app.use(express.static("public"));
 // connecting to Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/starticle";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 // mongoose.connect("mongodb://localhost/starticle", { useNewUrlParser: true });
 
 // Routes
