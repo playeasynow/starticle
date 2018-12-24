@@ -24,7 +24,10 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // connecting to Mongo DB
-mongoose.connect("mongodb://localhost/starticle", { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/starticle";
+
+mongoose.connect(MONGODB_URI);
+// mongoose.connect("mongodb://localhost/starticle", { useNewUrlParser: true });
 
 // Routes
 
