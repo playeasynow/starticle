@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
@@ -9,7 +10,7 @@ const cheerio = require("cheerio");
 // models
 const db = require("./models");
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 // initializing express
 const app = express();
